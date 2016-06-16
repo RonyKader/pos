@@ -1,0 +1,222 @@
+<?php 
+    $access = $this->session->userdata( 'logininfo' );
+    echo $access['account_type'];
+    if ( isset( $access )) { ?>
+
+<?php $this->load->view( 'layouts/header' ); ?>
+<body class="leftbar-view">
+<!--Topbar Start Here-->
+<header class="topbar clearfix">
+    <!--Top Search Bar Start Here-->
+    <div class="top-search-bar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="search-input-addon">
+                        <span class="addon-icon"><i class="zmdi zmdi-search"></i></span>
+                        <input type="text" class="form-control top-search-input" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Top Search Bar End Here-->
+
+    <!--Topbar Left Branding With Logo Start-->
+    <div class="topbar-left pull-left">
+        <div class="clearfix">
+            <ul class="left-branding pull-left clickablemenu ttmenu dark-style menu-color-gradient">
+                <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
+                <li>
+                    <div class="logo">
+                        <a href="" title="Admin Template"><img src="<?php echo base_url();?>/assets/images/logo.png" alt="logo"></a>
+                    </div>
+                </li>
+            </ul>
+            <!--Mobile Search and Rightbar Toggle-->
+            <ul class="branding-right pull-right">
+                <li><a href="#" class="btn-mobile-search btn-top-search"><i class="zmdi zmdi-search"></i></a></li>
+                <li><a href="#" class="btn-mobile-bar"><i class="zmdi zmdi-menu"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Topbar Left Branding With Logo End-->
+    <!--Topbar Right Start-->
+    <div class="topbar-right pull-right">
+        <div class="clearfix">
+            <!--Mobile View Leftbar Toggle-->
+            <ul class="left-bar-switch pull-left">
+                <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
+            </ul>
+            <ul class="pull-right top-right-icons">
+                <li><a href="#" class="btn-top-search"><i class="zmdi zmdi-search"></i></a></li>
+                <li class="dropdown apps-dropdown">
+                    <a href="#" class="btn-apps dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
+                    <div class="dropdown-menu">
+                        <ul class="apps-shortcut clearfix">
+                            <li>
+                                <a href="#"><i class="zmdi zmdi-email"></i>
+                                    <span class="apps-noty">23</span>
+                                    <span class="apps-label">Email</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="zmdi zmdi-accounts-alt"></i>
+                                    <span class="apps-noty">15</span>
+                                    <span class="apps-label">Forum</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="zmdi zmdi-file-text"></i>
+                                    <span class="apps-label">Note</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="zmdi zmdi-chart"></i>
+                                    <span class="apps-label">Analytics</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="more-apps">
+                            <li><a href="#"><i class="zmdi zmdi-camera"></i> Gallery</a></li>
+                            <li><a href="#"><i class="zmdi zmdi-comments"></i> Chat</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown notifications-dropdown">
+                    <a href="#" class="btn-notification dropdown-toggle" data-toggle="dropdown"><span class="noty-bubble">10</span><i class="zmdi zmdi-globe"></i></a>
+                    <div class="dropdown-menu notifications-tabs">
+                        <div>
+                            <ul class="nav material-tabs nav-tabs" role="tablist">
+                                <li class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
+                                <li><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">Notifications</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="message">
+                                    <div class="message-list-container">
+                                        <h4>You have 15 new messages</h4>
+                                        <ul class="clearfix">
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="<?php echo base_url();?>/assets/images/avatar/robertoortiz.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Robertoortiz </span>Nunc aliquam dolor... <span class="message-time">today at 10:20 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_purple">A</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Allisongrayce </span>In hac habitasse ... <span class="message-time">today at 8:29 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="<?php echo base_url();?>/assets/images/avatar/michael-owens.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Michael </span>Suspendisse ac mauris ... <span class="message-time">yesterday at 12:29 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_blue">B</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Bobbyjkane </span>Vivamus lacinia facilisis... <span class="message-time">yesterday at 11:48 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="<?php echo base_url();?>/assets/images/avatar/bobbyjkane.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Bobbyjkane </span>Donec vel iaculis ... <span class="message-time">1 month ago</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_teal">C</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Chexee </span> Curabitur eget blandit...<span class="message-time">3 months ago</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="<?php echo base_url();?>/assets/images/avatar/coreyweb.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Coreyweb </span>Etiam molestie nulla... <span class="message-time">1 year ago</span></a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-link btn-block btn-view-all" href="#"><span>View All</span></a>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="notifications">
+                                    <div class="notification-wrap">
+                                        <h4>You have 10 new notifications</h4>
+                                        <ul>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_purple"><i class="fa fa-bullhorn"></i></span><span class="notification-message">Pellentesque semper posuere. <span class="notification-time clearfix">3 Min Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_orange"><i class="fa fa-life-ring"></i></span><span class="notification-message">Nulla commodo sem at purus. <span class="notification-time clearfix">1 Hours Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_red"><i class="fa fa-star-o"></i></span><span class="notification-message">Fusce condimentum turpis. <span class="notification-time clearfix">3 Hours Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_light_blue"><i class="fa fa-trophy"></i></span><span class="notification-message">Pellentesque habitant morbi. <span class="notification-time clearfix">Yesterday</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_cyan"><i class="fa fa-bolt"></i></span><span class="notification-message">Fusce bibendum lacus mauris.<span class="notification-time clearfix">1 Month Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_yellow"><i class="fa fa-bookmark-o"></i></span><span class="notification-message">Donec id mi placerat, scelerisque.<span class="notification-time clearfix">3 Months Ago</span></span></a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-link btn-block btn-view-all clearfix" href="#"><span>View All</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" class="right-toggle-switch"><i class="zmdi zmdi-format-align-left"></i><span class="more-noty"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Topbar Right End-->
+</header>
+<!--Topbar End Here-->
+
+<!--Leftbar Start Here-->
+<?php //$this->load->view( 'layouts/nav' ); ?>
+
+<?php if ( isset( $nav )): ?>
+    <?php $this->load->view( $nav ); ?>
+<?php endif ?>
+<!--Leftbar End Here-->
+<section class="main-container">
+    <div class="container-fluid">
+        <div class="page-header filled full-block light">
+            <div class="row">
+
+
+            <?php if ( isset( $menu_form )): ?>
+                <?php $this->load->view( $menu_form ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $menu_list )): ?>
+                <?php $this->load->view( $menu_list ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $dashboard )): ?>
+                <?php $this->load->view( $dashboard ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $adminlist_page )): ?>
+                <?php $this->load->view( $adminlist_page ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $registration_page )): ?>
+                <?php $this->load->view( $registration_page ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $change_password )): ?>
+                <?php $this->load->view( $change_password ); ?>
+            <?php endif ?>
+
+            <?php if ( isset( $edit_adminPage )): ?>
+                <?php $this->load->view( $edit_adminPage ); ?>
+            <?php endif ?>
+
+                          
+            </div>
+        </div>
+    </div>
+    
+</section>   
+               
+<!--Page Container Start Here-->
+<?php $this->load->view( 'layouts/right-sidebar' ); ?>
+<!--Page Container End Here-->
+<?php $this->load->view( 'layouts/footer' ); ?>
+
+        
+<?php }
+else{
+    redirect( base_url() );
+}
+
+ ?>

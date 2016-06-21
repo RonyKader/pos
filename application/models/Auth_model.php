@@ -42,15 +42,8 @@
 			$account_type = $this->input->post( 'account_type' );	
 			$password = md5($this->input->post( 'password' ));	
 			$creator = $this->session->userdata( 'logininfo' );
-			$permission_set = $this->input->post('permission' );
-
-				$permission = "";
-				foreach ( $permission_set as $key => $value) {
-				$permission .= $value. ", ";
-				}
-
-			$permission_value = (string)$permission;
-			$permission_code = rtrim( $permission_value, ', ');
+			$menu_id = $this->input->post('menu_id' );
+			$permission = $this->input->post('permission' );
 
 			$created_by = $creator['id'];
 			$created_time = date( 'Y-m-d H:i:s');
@@ -63,7 +56,8 @@
 				'account_type' => $account_type,
 				'created_by' => $created_by,
 				'created_time' => $created_time,
-				'permission' => $permission_code
+				'menu_id' => implode(',',$menu_id),
+				'permission' => json_encode($permission)
 				);
             $data = $this->security->xss_clean($data);
 			$result = $this->db->insert( 'admin',$data );
@@ -85,21 +79,18 @@
 
 		public function nav_data()
 		{
-
 			$id = $this->session->userdata( 'logininfo' );
-			$get_permission = explode( ",", $id['permission'] );
+			$get_permission = explode(",",$id['permission']);
 
+			
+			$this->db->select('A.id,A.menu_name, A.menu_link, B.sub_menu_name, B.sub_menu_link, B.sub_menu_sorting');
 			if ( $id['account_type'] != 1 ) {
-				$this->db->where_in( 'id', $get_permission );		
-				$this->db->where( array( 'status' => 2 ) );						
-				$query = $this->db->get( 'admin_menu' );
-				return $query->result();
-			}else{
-				
-				$this->db->where( array( 'status' => 2 ) );						
-				$query = $this->db->get( 'admin_menu' );
-				return $query->result();
+				$this->db->where_in( 'A.id', $get_permission );
 			}
+			$this->db->where( array( 'A.status' => 2, 'A.menu_parent' => 0 ) );	
+			$this->db->join("(SELECT menu_parent,GROUP_CONCAT(menu_name SEPARATOR ',') AS sub_menu_name, GROUP_CONCAT(menu_link SEPARATOR ',') AS sub_menu_link, GROUP_CONCAT(menu_sorting SEPARATOR ',') AS sub_menu_sorting FROM admin_menu GROUP BY menu_parent)B",'A.id=B.menu_parent','left');		
+			$query = $this->db->get( 'admin_menu AS A' );
+			return $query->result();
 
 		}
 
@@ -115,7 +106,7 @@
 		}
 
 		public function admin_access(){
-			$id = $his->session->userdata( 'logininfo' );
+			$id = $this->session->userdata( 'logininfo' );
 			$get_permission = explode( ",", $id['permission']);
 
 			if ( $id['account_type'] != 1 ) {

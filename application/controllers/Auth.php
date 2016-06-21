@@ -67,12 +67,15 @@ class Auth extends CI_Controller {
 		$this->load->model( 'auth_model' );
 		$data['nav'] = 'nav';
 		$data['navData'] = $this->auth_model->nav_data();
+		
 		$data['registration_page'] = 'registration_form';
 		$this->load->view( 'layouts/main',$data );
 	}
 
 	public function create_admin()
 	{	
+		echo "<pre>";
+		// print_r( $_POST ); exit();
 
 		$this->form_validation->set_rules( 'name', 'Name', 'trim|required|min_length[3]|max_length[22]' );
 		$this->form_validation->set_rules( 'email', 'Email', 'trim|required|min_length[5]|max_length[32]|is_unique[admin.email]' );

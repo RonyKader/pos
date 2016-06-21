@@ -37,24 +37,40 @@
             </div>
         </div>
         <ul class="list-accordion">
+        <?php 
+       if ( $navData ) {                       
+            foreach ( $navData as $menu ) {
+            ?>    
             <li>
-                <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">MENU SECTION</span></a>
+                <a href="<?php echo base_url() . $menu->menu_link;?>"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label"><?php echo $menu->menu_name;?></span></a>
+
+                <?php
+                if($menu->sub_menu_name!=''){
+                ?>
                 <ul>
-                <?php 
-                   if ( $navData ) {                       
-                        foreach ( $navData as $menu ) {
-                        ?>    
-                        <li>
-                            <a href="<?php echo base_url() . $menu->menu_link;?>"><?php echo $menu->menu_name;?></a>
-                        </li>
-
-                     <?php }
-             
-}
-                 ?>
-
+                <?php
+                $sub_menu_sorting = explode(',',$menu->sub_menu_sorting);
+                $sub_menu_name = explode(',',$menu->sub_menu_name);
+                $sub_menu_link = explode(',',$menu->sub_menu_link);
+                asort($sub_menu_sorting);
+                foreach ($sub_menu_sorting as $key => $value) {
+                ?>
+                    <li>
+                        <a href="<?php echo base_url() . $sub_menu_link[$key];?>"><?php echo $sub_menu_name[$key];?></a>
+                    </li>
+                <?php
+                }
+                ?>
                 </ul>
+                <?php
+                }
+                ?>
+                
             </li>
+            <?php
+            }
+            }
+            ?>
 <!--             <li class="list-title">Forms</li>
             <li>
                 <a href="#"><i class="zmdi zmdi-view-web"></i><span class="list-label">From Elements</span></a>

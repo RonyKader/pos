@@ -36,8 +36,7 @@
                             <th>Email</th>
                             <th>Username</th>
                             <th>Admin Type</th>
-                            <th>Created Date</th>
-                            <th>Status</th>
+                            <th>Created Date</th>                      
                             <th class="td-center">Action</th>
                         </tr>
                         </thead>
@@ -75,26 +74,26 @@
                                 ?>
                                     
                                 </td>
+                                <td class="td-center">
+                                    <div class="btn-toolbar" role="toolbar">
+                                        <div class="btn-group" role="group">
 
                                     <?php
                                         if ( $admininfo->status == 2 ) 
                                         { ?>
-                                            <td><label class="label label-success"><a href="<?php echo base_url();?>/auth/approve?id=<?php echo $admininfo->id;?>&status=<?php echo $admininfo->status;?>">Approved</a></label></td>
+                                           <a href="<?php echo base_url();?>/auth/approve?id=<?php echo $admininfo->id;?>&status=<?php echo $admininfo->status;?>"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
                                             
                                         <?php }else{ ?>
-                                            <td> <label class="label label-warning"><a href="<?php echo base_url();?>/auth/approve?id=<?php echo $admininfo->id;?>&status=<?php echo $admininfo->status;?>">Pending</a></label></td>
+                                        <a href="<?php echo base_url();?>/auth/approve?id=<?php echo $admininfo->id;?>&status=<?php echo $admininfo->status;?>"><i class="fa fa-ban" aria-hidden="true"></i></a>
                                         <?php }
 
                                     ?>
-                                <td class="td-center">
-                                    <div class="btn-toolbar" role="toolbar">
-                                        <div class="btn-group" role="group">
-                                            <a href="<?php echo base_url();?>auth/edit_admin/<?php echo $admininfo->id;?>" class="btn btn-default btn-sm m-user-edit"><i class="zmdi zmdi-edit"></i></a>
+                                            <a href="<?php echo base_url();?>auth/edit_admin/<?php echo $admininfo->id;?>"><i class="zmdi zmdi-edit"></i></a>
                                       <?php $currentuser =  $this->session->userdata( 'logininfo' );?>
                                        <?php if( $currentuser['username'] != $admininfo->username ) :?>
-                                            <a href="<?php echo base_url();?>auth/delete_admin/<?php echo $admininfo->id;?>" class="btn btn-default btn-sm m-user-delete"><i class="zmdi zmdi-close"></i></a>
+                                            <a href="<?php echo base_url();?>auth/delete_admin/<?php echo $admininfo->id;?>"><i class="zmdi zmdi-close"></i></a>
                                         <?php else: ?>
-                                            <a href="javascript:void(0);" class="btn btn-default btn-sm disabled"><i class="zmdi zmdi-close"></i></a>                                      
+                                            <a href="javascript:void(0);" class="disabled"><i class="zmdi zmdi-close"></i></a>                                      
                                        <?php endif;?>     
                                         </div>
                                     </div>

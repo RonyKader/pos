@@ -145,22 +145,22 @@
                     </label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="1" ><i></i> List</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="1" ><i></i> List</label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="2" ><i></i>Add</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="2" ><i></i>Add</label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="3" ><i></i> View</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="3" ><i></i> View</label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="4" ><i></i> Edit</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="4" ><i></i> Edit</label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="5" ><i></i> Activity</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="5" ><i></i> Activity</label>
                 </td>
                 <td name="optionTd1" align="right" style="width:80px; padding:0 5px;">
-                    <label class="checkbox"><input type="checkbox" name="permission[]" value="6" ><i></i> Delete</label>
+                    <label class="checkbox"><input type="checkbox" name="permission[1][]" value="6" ><i></i> Delete</label>
                 </td>
             </tr>
             <tr>

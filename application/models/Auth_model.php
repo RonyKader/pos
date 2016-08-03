@@ -88,6 +88,7 @@
 				$this->db->where_in( 'A.id', $get_permission );
 			}
 			$this->db->where( array( 'A.status' => 2, 'A.menu_parent' => 0 ) );	
+			
 			$this->db->join("(SELECT menu_parent,GROUP_CONCAT(menu_name SEPARATOR ',') AS sub_menu_name, GROUP_CONCAT(menu_link SEPARATOR ',') AS sub_menu_link, GROUP_CONCAT(menu_sorting SEPARATOR ',') AS sub_menu_sorting FROM admin_menu GROUP BY menu_parent)B",'A.id=B.menu_parent','left');		
 			$query = $this->db->get( 'admin_menu AS A' );
 			return $query->result();

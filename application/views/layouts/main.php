@@ -1,6 +1,6 @@
 <?php 
     $access = $this->session->userdata( 'logininfo' );
-    echo $access['account_type'];
+     $access['account_type'];
     if ( isset( $access )) { ?>
 
 <?php $this->load->view( 'layouts/header' ); ?>

@@ -40,9 +40,13 @@
         <?php 
        if ( $navData ) {                       
             foreach ( $navData as $menu ) {
+           
             ?>    
             <li>
-                <a href="<?php echo base_url() . $menu->menu_link;?>"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label"><?php echo $menu->menu_name;?></span></a>
+                <a href="<?php echo base_url() . $menu->menu_link;?>">
+                <i class="zmdi zmdi-view-dashboard"></i>
+                    <span class="list-label"><?php echo $menu->menu_name;?></span>
+                </a>
 
                 <?php
                 if($menu->sub_menu_name!=''){
@@ -54,6 +58,13 @@
                 $sub_menu_link = explode(',',$menu->sub_menu_link);
                 asort($sub_menu_sorting);
                 foreach ($sub_menu_sorting as $key => $value) {
+
+                    echo "<pre>";
+                    print_r( $key );
+                    echo "<hr><br/>";
+
+                    echo "<pre>";
+                    print_r( $value ); exit();
                 ?>
                     <li>
                         <a href="<?php echo base_url() . $sub_menu_link[$key];?>"><?php echo $sub_menu_name[$key];?></a>
